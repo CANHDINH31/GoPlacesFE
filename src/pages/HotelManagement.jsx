@@ -4,10 +4,9 @@ import { Box, Typography, Button } from "@mui/material";
 import ConfirmDelete from "../components/common/ConfirmDelete";
 import { notify } from "../utils/helpers/notify";
 import { DataGrid } from "@mui/x-data-grid";
-import { deleteTour } from "../utils/api/tour";
-import ModalDetailTour from "../components/screens/tour/ModalDetailTour";
 import ModalAddHotel from "../components/screens/hotel/ModalAddHotel";
 import { deleteHotel, listHotel } from "../utils/api/hotel";
+import ModalDetailHotel from "../components/screens/hotel/ModalDetailHotel";
 
 function HotelManagement() {
   const [isOpenAdd, setIsOpenAdd] = useState(false);
@@ -116,7 +115,7 @@ function HotelManagement() {
         reloadData={getListHotel}
       />
 
-      <ModalDetailTour
+      <ModalDetailHotel
         open={isOpenUpdate}
         handleClose={() => setIsOpenUpdate(false)}
         reloadData={getListHotel}
