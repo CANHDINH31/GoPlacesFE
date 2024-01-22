@@ -4,10 +4,10 @@ import { Box, Typography, Button } from "@mui/material";
 import ConfirmDelete from "../components/common/ConfirmDelete";
 import { notify } from "../utils/helpers/notify";
 import { DataGrid } from "@mui/x-data-grid";
-import ModalAddUser from "../components/screens/user/ModalAddUser";
-import { deleteUser, listUser } from "../utils/api/user";
+import { deleteTour } from "../utils/api/tour";
 import ModalDetailUser from "../components/screens/user/ModalDetailUser";
 import ModalAddTour from "../components/screens/tour/ModalAddTour";
+import { listTour } from "../utils/api/tour";
 
 function TourManagement() {
   const [isOpenAdd, setIsOpenAdd] = useState(false);
@@ -23,10 +23,11 @@ function TourManagement() {
       headerName: "Name",
       width: 150,
     },
-    { field: "email", headerName: "Email", width: 200 },
-    { field: "password", headerName: "Password", width: 150 },
-    { field: "date", headerName: "Birthday", width: 200 },
-    { field: "phone", headerName: "Phone", width: 150 },
+    { field: "description", headerName: "Description", width: 200 },
+    { field: "startDate", headerName: "Start Date", width: 150 },
+    { field: "endDate", headerName: "EndDate", width: 150 },
+    { field: "transport", headerName: "Transport", width: 200 },
+    { field: "numberPeople", headerName: "Number People", width: 150 },
     {
       field: "",
       headerName: "Hành động",
@@ -53,14 +54,10 @@ function TourManagement() {
     },
   ];
 
-  const getListUser = async () => {
+  const getListTour = async () => {
     try {
-      const res = await listUser();
-      setData(
-        res?.data?.data
-          ?.map((e) => ({ id: e._id, ...e }))
-          ?.filter((e) => e.role != "1")
-      );
+      const res = await listTour();
+      setData(res?.data?.data?.map((e) => ({ id: e._id, ...e })));
     } catch (error) {
       console.log(error);
     }
@@ -76,17 +73,17 @@ function TourManagement() {
     setIsOpenUpdate(true);
   };
 
-  const handleDeleteUser = async () => {
+  const handleDeleteTour = async () => {
     try {
-      await deleteUser(idDelete);
-      getListUser();
-      notify("success", "Xoá tài khoản thành công");
+      await deleteTour(idDelete);
+      getListTour();
+      notify("success", "Xoá tour thành công");
     } catch (error) {}
     setIsOpenDelete(false);
   };
 
   useEffect(() => {
-    getListUser();
+    getListTour();
   }, []);
 
   return (
@@ -97,7 +94,7 @@ function TourManagement() {
         alignItems={"center"}
       >
         <Typography fontWeight={"bold"} fontSize={20}>
-          Quản lý tài khoản
+          Quản lý tour du lịch
         </Typography>
         <Box display={"flex"} alignItems={"center"} gap={1}>
           <Button
@@ -116,13 +113,13 @@ function TourManagement() {
       <ModalAddTour
         open={isOpenAdd}
         handleClose={() => setIsOpenAdd(false)}
-        reloadData={getListUser}
+        reloadData={getListTour}
       />
 
       <ModalDetailUser
         open={isOpenUpdate}
         handleClose={() => setIsOpenUpdate(false)}
-        reloadData={getListUser}
+        reloadData={getListTour}
         info={infoUpdate}
       />
 
@@ -130,7 +127,7 @@ function TourManagement() {
       <ConfirmDelete
         open={isOpenDelete}
         handleClose={() => setIsOpenDelete(false)}
-        handleOk={handleDeleteUser}
+        handleOk={handleDeleteTour}
       />
     </AdminLayout>
   );
