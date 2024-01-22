@@ -5,4 +5,7 @@ export const create = async (payload) =>
 
 export const listTour = async () => await request.get("/api/tour");
 
+export const updateTour = async (id, payload) =>
+  await request.put("/api/tour/" + id, payload);
+
 export const deleteTour = async (id) => await request.delete("/api/tour/" + id);

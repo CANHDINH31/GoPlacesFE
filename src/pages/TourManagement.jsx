@@ -8,6 +8,7 @@ import { deleteTour } from "../utils/api/tour";
 import ModalDetailUser from "../components/screens/user/ModalDetailUser";
 import ModalAddTour from "../components/screens/tour/ModalAddTour";
 import { listTour } from "../utils/api/tour";
+import ModalDetailTour from "../components/screens/tour/ModalDetailTour";
 
 function TourManagement() {
   const [isOpenAdd, setIsOpenAdd] = useState(false);
@@ -116,7 +117,7 @@ function TourManagement() {
         reloadData={getListTour}
       />
 
-      <ModalDetailUser
+      <ModalDetailTour
         open={isOpenUpdate}
         handleClose={() => setIsOpenUpdate(false)}
         reloadData={getListTour}
