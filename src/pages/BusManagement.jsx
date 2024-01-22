@@ -9,6 +9,7 @@ import { deleteHotel, listHotel } from "../utils/api/hotel";
 import ModalDetailHotel from "../components/screens/hotel/ModalDetailHotel";
 import { deleteBus, listBus } from "../utils/api/bus";
 import ModalAddBus from "../components/screens/bus/ModalAddBus";
+import ModalDetailBus from "../components/screens/bus/ModalDetailBus";
 
 function BusManagement() {
   const [isOpenAdd, setIsOpenAdd] = useState(false);
@@ -117,7 +118,7 @@ function BusManagement() {
         reloadData={getListBus}
       />
 
-      <ModalDetailHotel
+      <ModalDetailBus
         open={isOpenUpdate}
         handleClose={() => setIsOpenUpdate(false)}
         reloadData={getListBus}
