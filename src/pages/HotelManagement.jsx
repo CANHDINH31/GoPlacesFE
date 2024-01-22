@@ -5,11 +5,11 @@ import ConfirmDelete from "../components/common/ConfirmDelete";
 import { notify } from "../utils/helpers/notify";
 import { DataGrid } from "@mui/x-data-grid";
 import { deleteTour } from "../utils/api/tour";
-import ModalAddTour from "../components/screens/tour/ModalAddTour";
-import { listTour } from "../utils/api/tour";
 import ModalDetailTour from "../components/screens/tour/ModalDetailTour";
+import ModalAddHotel from "../components/screens/hotel/ModalAddHotel";
+import { deleteHotel, listHotel } from "../utils/api/hotel";
 
-function TourManagement() {
+function HotelManagement() {
   const [isOpenAdd, setIsOpenAdd] = useState(false);
   const [isOpenDelete, setIsOpenDelete] = useState(false);
   const [isOpenUpdate, setIsOpenUpdate] = useState(false);
@@ -24,10 +24,10 @@ function TourManagement() {
       width: 150,
     },
     { field: "description", headerName: "Description", width: 200 },
-    { field: "startDate", headerName: "Start Date", width: 150 },
-    { field: "endDate", headerName: "EndDate", width: 150 },
-    { field: "transport", headerName: "Transport", width: 200 },
-    { field: "numberPeople", headerName: "Number People", width: 150 },
+    { field: "rating", headerName: "Rating", width: 150 },
+    { field: "timeCheckin", headerName: "Time Checkin", width: 150 },
+    { field: "timeCheckout", headerName: "Time Checkout", width: 200 },
+    { field: "address", headerName: "Address", width: 150 },
     {
       field: "",
       headerName: "Hành động",
@@ -54,9 +54,9 @@ function TourManagement() {
     },
   ];
 
-  const getListTour = async () => {
+  const getListHotel = async () => {
     try {
-      const res = await listTour();
+      const res = await listHotel();
       setData(res?.data?.data?.map((e) => ({ id: e._id, ...e })));
     } catch (error) {
       console.log(error);
@@ -73,17 +73,17 @@ function TourManagement() {
     setIsOpenUpdate(true);
   };
 
-  const handleDeleteTour = async () => {
+  const handleDeleteHotel = async () => {
     try {
-      await deleteTour(idDelete);
-      getListTour();
-      notify("success", "Xoá tour thành công");
+      await deleteHotel(idDelete);
+      getListHotel();
+      notify("success", "Xoá hotel thành công");
     } catch (error) {}
     setIsOpenDelete(false);
   };
 
   useEffect(() => {
-    getListTour();
+    getListHotel();
   }, []);
 
   return (
@@ -94,7 +94,7 @@ function TourManagement() {
         alignItems={"center"}
       >
         <Typography fontWeight={"bold"} fontSize={20}>
-          Quản lý tour du lịch
+          Quản lý khách sạn
         </Typography>
         <Box display={"flex"} alignItems={"center"} gap={1}>
           <Button
@@ -102,7 +102,7 @@ function TourManagement() {
             onClick={() => setIsOpenAdd(true)}
             size="small"
           >
-            Thêm tour du lịch
+            Thêm khách sạn
           </Button>
         </Box>
       </Box>
@@ -110,16 +110,16 @@ function TourManagement() {
         <DataGrid disableRowSelectionOnClick rows={data} columns={columns} />
       </Box>
 
-      <ModalAddTour
+      <ModalAddHotel
         open={isOpenAdd}
         handleClose={() => setIsOpenAdd(false)}
-        reloadData={getListTour}
+        reloadData={getListHotel}
       />
 
       <ModalDetailTour
         open={isOpenUpdate}
         handleClose={() => setIsOpenUpdate(false)}
-        reloadData={getListTour}
+        reloadData={getListHotel}
         info={infoUpdate}
       />
 
@@ -127,10 +127,10 @@ function TourManagement() {
       <ConfirmDelete
         open={isOpenDelete}
         handleClose={() => setIsOpenDelete(false)}
-        handleOk={handleDeleteTour}
+        handleOk={handleDeleteHotel}
       />
     </AdminLayout>
   );
 }
 
-export default TourManagement;
+export default HotelManagement;

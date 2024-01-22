@@ -3,7 +3,8 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { BiCategory } from "react-icons/bi";
-import { RiProductHuntLine, RiUserLine } from "react-icons/ri";
+import { RiUserLine, RiHotelLine, RiBus2Line } from "react-icons/ri";
+import { MdOutlineEmojiFoodBeverage } from "react-icons/md";
 
 export const Sidebar = (
   <React.Fragment>
@@ -19,11 +20,23 @@ export const Sidebar = (
       </ListItemIcon>
       <ListItemText primary="Tour du lịch" />
     </ListItemButton>
-    <ListItemButton href="/admin/product">
+    <ListItemButton href="/hotel">
       <ListItemIcon>
-        <RiProductHuntLine fontSize={24} />
+        <RiHotelLine fontSize={24} />
       </ListItemIcon>
-      <ListItemText primary="Sản phẩm" />
+      <ListItemText primary="Khách sạn" />
+    </ListItemButton>
+    <ListItemButton href="/bus">
+      <ListItemIcon>
+        <RiBus2Line fontSize={24} />
+      </ListItemIcon>
+      <ListItemText primary="Phương tiện" />
+    </ListItemButton>
+    <ListItemButton href="/food">
+      <ListItemIcon>
+        <MdOutlineEmojiFoodBeverage fontSize={24} />
+      </ListItemIcon>
+      <ListItemText primary="Đồ ăn & đồ uống" />
     </ListItemButton>
   </React.Fragment>
 );
