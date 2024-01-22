@@ -13,11 +13,11 @@ export const Sidebar = (
       </ListItemIcon>
       <ListItemText primary="Tài khoản" />
     </ListItemButton>
-    <ListItemButton href="/admin/category">
+    <ListItemButton href="/tour">
       <ListItemIcon>
         <BiCategory fontSize={24} />
       </ListItemIcon>
-      <ListItemText primary="Danh mục" />
+      <ListItemText primary="Tour du lịch" />
     </ListItemButton>
     <ListItemButton href="/admin/product">
       <ListItemIcon>
