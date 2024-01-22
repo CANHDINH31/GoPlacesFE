@@ -3,41 +3,29 @@ import AdminLayout from "../components/layout/AuthLayout";
 import { Box, Typography, Button } from "@mui/material";
 import ConfirmDelete from "../components/common/ConfirmDelete";
 import { notify } from "../utils/helpers/notify";
-import { deleteProduct, listProduct } from "../utils/api/product";
 import { DataGrid } from "@mui/x-data-grid";
-import ModalAddProductToCategory from "../components/screens/admin/product/ModalAddProductToCategory";
-import ModalDetailProduct from "../components/screens/admin/product/ModalDetailProduct";
 import ModalAddUser from "../components/screens/user/ModalAddUser";
+import { deleteUser, listUser } from "../utils/api/user";
+import ModalDetailUser from "../components/screens/user/ModalDetailUser";
 
 function UserManagement() {
   const [isOpenAdd, setIsOpenAdd] = useState(false);
   const [isOpenDelete, setIsOpenDelete] = useState(false);
   const [isOpenUpdate, setIsOpenUpdate] = useState(false);
-  const [isOpenAddToCategory, setIsOpenAddToCategory] = useState(false);
   const [idDelete, setIdDelete] = useState("");
   const [data, setData] = useState([]);
-  const [listId, setListId] = useState([]);
   const [infoUpdate, setInfoUpdate] = useState({});
 
   const columns = [
     {
-      field: "image",
-      headerName: "Hình ảnh",
+      field: "name",
+      headerName: "Name",
       width: 150,
-      renderCell: (params) => (
-        <Box
-          component={"img"}
-          src={params?.row?.img1 || "/img/noImage.jpg"}
-          width={120}
-          height={120}
-          sx={{ objectFit: "cover", borderRadius: 2, border: "1px solid #ddd" }}
-        />
-      ),
     },
-    { field: "name", headerName: "Tên ", width: 200 },
-    { field: "description", headerName: "Mô tả", width: 250 },
-    { field: "price", headerName: "Giá gốc", width: 100 },
-    { field: "discountPrice", headerName: "Giá khuyên mại", width: 150 },
+    { field: "email", headerName: "Email", width: 200 },
+    { field: "password", headerName: "Password", width: 150 },
+    { field: "date", headerName: "Birthday", width: 200 },
+    { field: "phone", headerName: "Phone", width: 150 },
     {
       field: "",
       headerName: "Hành động",
@@ -64,10 +52,14 @@ function UserManagement() {
     },
   ];
 
-  const getListProduct = async () => {
+  const getListUser = async () => {
     try {
-      const res = await listProduct();
-      setData(res.data?.map((e) => ({ id: e._id, ...e })));
+      const res = await listUser();
+      setData(
+        res?.data?.data
+          ?.map((e) => ({ id: e._id, ...e }))
+          ?.filter((e) => e.role != "1")
+      );
     } catch (error) {
       console.log(error);
     }
@@ -83,17 +75,17 @@ function UserManagement() {
     setIsOpenUpdate(true);
   };
 
-  const handleDeleteProduct = async () => {
+  const handleDeleteUser = async () => {
     try {
-      await deleteProduct(idDelete);
-      getListProduct();
-      notify("success", "Xoá sản phẩm thành công");
+      await deleteUser(idDelete);
+      getListUser();
+      notify("success", "Xoá tài khoản thành công");
     } catch (error) {}
     setIsOpenDelete(false);
   };
 
   useEffect(() => {
-    getListProduct();
+    getListUser();
   }, []);
 
   return (
@@ -123,30 +115,21 @@ function UserManagement() {
       <ModalAddUser
         open={isOpenAdd}
         handleClose={() => setIsOpenAdd(false)}
-        reloadData={getListProduct}
+        reloadData={getListUser}
       />
 
-      <ModalDetailProduct
+      <ModalDetailUser
         open={isOpenUpdate}
         handleClose={() => setIsOpenUpdate(false)}
-        reloadData={getListProduct}
+        reloadData={getListUser}
         info={infoUpdate}
-      />
-
-      <ModalAddProductToCategory
-        open={isOpenAddToCategory}
-        handleClose={() => {
-          setListId([]);
-          setIsOpenAddToCategory(false);
-        }}
-        listId={listId}
       />
 
       {/* Modal delete */}
       <ConfirmDelete
         open={isOpenDelete}
         handleClose={() => setIsOpenDelete(false)}
-        handleOk={handleDeleteProduct}
+        handleOk={handleDeleteUser}
       />
     </AdminLayout>
   );
