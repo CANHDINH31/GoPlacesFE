@@ -7,6 +7,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import ModalDetailBus from "../components/screens/bus/ModalDetailBus";
 import { deleteFood, listFood } from "../utils/api/food";
 import ModalAddFood from "../components/screens/food/ModalAddFood";
+import ModalDetailFood from "../components/screens/food/ModalDetailFood";
 
 function FoodManagement() {
   const [isOpenAdd, setIsOpenAdd] = useState(false);
@@ -115,7 +116,7 @@ function FoodManagement() {
         reloadData={getListFood}
       />
 
-      <ModalDetailBus
+      <ModalDetailFood
         open={isOpenUpdate}
         handleClose={() => setIsOpenUpdate(false)}
         reloadData={getListFood}
