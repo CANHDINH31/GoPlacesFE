@@ -11,7 +11,7 @@ export const Sidebar = (
       <ListItemIcon>
         <RiUserLine fontSize={24} />
       </ListItemIcon>
-      <ListItemText primary="Người dùng" />
+      <ListItemText primary="Tài khoản" />
     </ListItemButton>
     <ListItemButton href="/admin/category">
       <ListItemIcon>

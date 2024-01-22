@@ -1,13 +1,7 @@
-// import Home from "../pages";
-// import CategoryManagement from "../pages/CategoryManagement";
-// import OrderManagement from "../pages/OrderManagement";
 import Login from "../pages/Login";
-import ProductManagement from "../pages/ProductManagement";
+import UserManagement from "../pages/UserManagement";
 
 export const listRouter = [
-  { path: "/", element: <ProductManagement /> },
+  { path: "/", element: <UserManagement /> },
   { path: "/login", element: <Login /> },
-  // { path: "/", element: <CategoryManagement /> },
-  // { path: "/", element: <OrderManagement /> },
-  // { path: "/", element: <Home /> },
 ];
