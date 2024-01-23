@@ -108,7 +108,7 @@ function ModalAddFood({ open, handleClose, reloadData }) {
           />
         ))}
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Name:</Typography>
+          <Typography variant="subtitle2">Tên:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -117,7 +117,7 @@ function ModalAddFood({ open, handleClose, reloadData }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Description:</Typography>
+          <Typography variant="subtitle2">Mô tả:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -127,7 +127,7 @@ function ModalAddFood({ open, handleClose, reloadData }) {
         </Grid>
 
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Time:</Typography>
+          <Typography variant="subtitle2">Thời gian mở cửa:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -137,7 +137,7 @@ function ModalAddFood({ open, handleClose, reloadData }) {
         </Grid>
 
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Address:</Typography>
+          <Typography variant="subtitle2">Địa chỉ:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -146,7 +146,7 @@ function ModalAddFood({ open, handleClose, reloadData }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Phone:</Typography>
+          <Typography variant="subtitle2">Số điện thoại giá:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -155,7 +155,7 @@ function ModalAddFood({ open, handleClose, reloadData }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Price:</Typography>
+          <Typography variant="subtitle2">Giá:</Typography>
           <TextField
             size="small"
             fullWidth

@@ -20,14 +20,14 @@ function FoodManagement() {
   const columns = [
     {
       field: "name",
-      headerName: "Name",
+      headerName: "Tên",
       width: 150,
     },
-    { field: "description", headerName: "Description", width: 200 },
-    { field: "time", headerName: "Time", width: 150 },
-    { field: "phone", headerName: "Phone", width: 200 },
-    { field: "address", headerName: "Address", width: 150 },
-    { field: "price", headerName: "Price", width: 150 },
+    { field: "description", headerName: "Mô tả", width: 200 },
+    { field: "time", headerName: "Thời gian mở cửa", width: 150 },
+    { field: "phone", headerName: "Số điện thoại", width: 200 },
+    { field: "address", headerName: "Địa chỉ", width: 150 },
+    { field: "price", headerName: "Giá", width: 150 },
     {
       field: "",
       headerName: "Hành động",

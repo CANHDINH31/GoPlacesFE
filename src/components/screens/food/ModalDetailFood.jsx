@@ -5,7 +5,7 @@ import { notify } from "../../../utils/helpers/notify";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../../utils/firebase";
 import ImgUpload from "../../common/ImgUpload";
-import { create, updateFood } from "../../../utils/api/food";
+import { updateFood } from "../../../utils/api/food";
 
 function ModalDetailFood({ open, handleClose, reloadData, info }) {
   const [url1, setUrl1] = useState("");
@@ -121,7 +121,7 @@ function ModalDetailFood({ open, handleClose, reloadData, info }) {
           />
         ))}
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Name:</Typography>
+          <Typography variant="subtitle2">Tên:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -130,7 +130,7 @@ function ModalDetailFood({ open, handleClose, reloadData, info }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Description:</Typography>
+          <Typography variant="subtitle2">Mô tả:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -140,7 +140,7 @@ function ModalDetailFood({ open, handleClose, reloadData, info }) {
         </Grid>
 
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Time:</Typography>
+          <Typography variant="subtitle2">Thời gian mở cửa:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -150,7 +150,7 @@ function ModalDetailFood({ open, handleClose, reloadData, info }) {
         </Grid>
 
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Address:</Typography>
+          <Typography variant="subtitle2">Địa chỉ:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -159,7 +159,7 @@ function ModalDetailFood({ open, handleClose, reloadData, info }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Phone:</Typography>
+          <Typography variant="subtitle2">Số điện thoại:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -168,7 +168,7 @@ function ModalDetailFood({ open, handleClose, reloadData, info }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Price:</Typography>
+          <Typography variant="subtitle2">Giá:</Typography>
           <TextField
             size="small"
             fullWidth
