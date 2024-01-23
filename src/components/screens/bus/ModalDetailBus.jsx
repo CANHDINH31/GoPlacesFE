@@ -137,7 +137,7 @@ function ModalDetailBus({ open, handleClose, reloadData, info }) {
           />
         ))}
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Name:</Typography>
+          <Typography variant="subtitle2">Tên:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -146,7 +146,7 @@ function ModalDetailBus({ open, handleClose, reloadData, info }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Description:</Typography>
+          <Typography variant="subtitle2">Mô tả:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -155,7 +155,7 @@ function ModalDetailBus({ open, handleClose, reloadData, info }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Type:</Typography>
+          <Typography variant="subtitle2">Phân loại:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -164,7 +164,7 @@ function ModalDetailBus({ open, handleClose, reloadData, info }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Route:</Typography>
+          <Typography variant="subtitle2">Tuyến đường:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -174,7 +174,7 @@ function ModalDetailBus({ open, handleClose, reloadData, info }) {
         </Grid>
 
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Rating:</Typography>
+          <Typography variant="subtitle2">Đánh giá:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -183,7 +183,7 @@ function ModalDetailBus({ open, handleClose, reloadData, info }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Time Start:</Typography>
+          <Typography variant="subtitle2">Giờ xuất phát:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -193,7 +193,7 @@ function ModalDetailBus({ open, handleClose, reloadData, info }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Time End:</Typography>
+          <Typography variant="subtitle2">Giờ trả khách dự kiến:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -203,7 +203,7 @@ function ModalDetailBus({ open, handleClose, reloadData, info }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Address:</Typography>
+          <Typography variant="subtitle2">Địa điểm đón:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -212,7 +212,7 @@ function ModalDetailBus({ open, handleClose, reloadData, info }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Phone:</Typography>
+          <Typography variant="subtitle2">Số điện thoại:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -221,7 +221,7 @@ function ModalDetailBus({ open, handleClose, reloadData, info }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Price:</Typography>
+          <Typography variant="subtitle2">Khoảng giá:</Typography>
           <TextField
             size="small"
             fullWidth

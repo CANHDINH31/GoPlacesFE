@@ -114,7 +114,7 @@ export default function AdminLayout({ children }) {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Welcome to Dashboard
+              Chào mừng đến với hệ thống quản lý
             </Typography>
             <Button
               color="error"

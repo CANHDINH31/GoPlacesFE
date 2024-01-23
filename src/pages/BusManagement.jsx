@@ -22,14 +22,14 @@ function BusManagement() {
   const columns = [
     {
       field: "name",
-      headerName: "Name",
+      headerName: "Tên",
       width: 150,
     },
-    { field: "description", headerName: "Description", width: 200 },
-    { field: "timeStart", headerName: "Time Start", width: 150 },
-    { field: "timeEnd", headerName: "Time End", width: 200 },
-    { field: "route", headerName: "Route", width: 200 },
-    { field: "address", headerName: "Address", width: 150 },
+    { field: "description", headerName: "Mô tả", width: 200 },
+    { field: "timeStart", headerName: "Giờ xuất phát", width: 150 },
+    { field: "timeEnd", headerName: "Giờ trả khách dự kiến", width: 200 },
+    { field: "route", headerName: "Tuyến đường", width: 200 },
+    { field: "address", headerName: "Địa chỉ đón khách", width: 150 },
     {
       field: "",
       headerName: "Hành động",
@@ -79,7 +79,7 @@ function BusManagement() {
     try {
       await deleteBus(idDelete);
       getListBus();
-      notify("success", "Xoá bus thành công");
+      notify("success", "Xoá thành công");
     } catch (error) {}
     setIsOpenDelete(false);
   };
