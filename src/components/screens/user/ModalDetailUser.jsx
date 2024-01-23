@@ -6,6 +6,7 @@ import {
   RadioGroup,
   FormControlLabel,
   Radio,
+  Chip,
 } from "@mui/material";
 import ModalUpdate from "../../common/ModalUpdate";
 import { notify } from "../../../utils/helpers/notify";
@@ -133,6 +134,19 @@ function ModalDetailUser({ open, handleClose, reloadData, info }) {
             />
           </RadioGroup>
         </Grid>
+        <Grid item xs={6} display={"flex"} gap={1} alignItems={"center"}>
+          <Typography variant="subtitle2">Trạng thái:</Typography>
+          <Chip
+            label={info?.isBlock == "0" ? "Hoạt động" : "Khóa"}
+            color={info?.isBlock == "0" ? "success" : "error"}
+          />
+        </Grid>
+        {info?.reasonBlock && (
+          <Grid item xs={6} display={"flex"} gap={1}>
+            <Typography variant="subtitle2">Lý do tài khoản:</Typography>
+            <Typography variant="subtitle2">{info?.reasonBlock}</Typography>
+          </Grid>
+        )}
       </Grid>
     </ModalUpdate>
   );
