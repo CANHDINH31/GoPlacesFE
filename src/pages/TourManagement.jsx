@@ -20,14 +20,14 @@ function TourManagement() {
   const columns = [
     {
       field: "name",
-      headerName: "Name",
+      headerName: "Tên",
       width: 150,
     },
-    { field: "description", headerName: "Description", width: 200 },
-    { field: "startDate", headerName: "Start Date", width: 150 },
-    { field: "endDate", headerName: "EndDate", width: 150 },
-    { field: "transport", headerName: "Transport", width: 200 },
-    { field: "numberPeople", headerName: "Number People", width: 150 },
+    { field: "description", headerName: "Mô tả", width: 200 },
+    { field: "startDate", headerName: "Ngày khởi hành", width: 150 },
+    { field: "endDate", headerName: "Ngày kết thúc", width: 150 },
+    { field: "transport", headerName: "Vận chuyển", width: 200 },
+    { field: "numberPeople", headerName: "Số lượng người", width: 150 },
     {
       field: "",
       headerName: "Hành động",

@@ -28,6 +28,7 @@ function ModalAddTour({ open, handleClose, reloadData }) {
   const [place, setPlace] = useState("");
   const [priceA, setPriceA] = useState(0);
   const [priceC, setPriceC] = useState(0);
+  const [schedule, setSchedule] = useState("");
 
   const images = [
     { src: url1, setSrc: setUrl1 },
@@ -61,6 +62,7 @@ function ModalAddTour({ open, handleClose, reloadData }) {
     setPlace("");
     setPriceA(0);
     setPriceC(0);
+    setSchedule("");
   };
 
   const handleAddTour = async () => {
@@ -80,6 +82,7 @@ function ModalAddTour({ open, handleClose, reloadData }) {
         place,
         priceA: Number(priceA),
         priceC: Number(priceC),
+        schedule,
       });
       notify("success", "Thêm tour du lịch thành công");
       reloadData();
@@ -126,7 +129,7 @@ function ModalAddTour({ open, handleClose, reloadData }) {
           />
         ))}
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Name:</Typography>
+          <Typography variant="subtitle2">Tên:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -135,7 +138,7 @@ function ModalAddTour({ open, handleClose, reloadData }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Description:</Typography>
+          <Typography variant="subtitle2">Mô tả:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -144,7 +147,7 @@ function ModalAddTour({ open, handleClose, reloadData }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Type:</Typography>
+          <Typography variant="subtitle2">Loại hình du lịch:</Typography>
           <Select
             size="small"
             fullWidth
@@ -159,7 +162,7 @@ function ModalAddTour({ open, handleClose, reloadData }) {
           </Select>
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Start Date:</Typography>
+          <Typography variant="subtitle2">Ngày khởi hành:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -169,7 +172,7 @@ function ModalAddTour({ open, handleClose, reloadData }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">End Date:</Typography>
+          <Typography variant="subtitle2">Ngày kết thúc:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -179,7 +182,7 @@ function ModalAddTour({ open, handleClose, reloadData }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Transport:</Typography>
+          <Typography variant="subtitle2">Vận chuyển:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -188,7 +191,7 @@ function ModalAddTour({ open, handleClose, reloadData }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Number People:</Typography>
+          <Typography variant="subtitle2">Số lượng người:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -198,7 +201,7 @@ function ModalAddTour({ open, handleClose, reloadData }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Place:</Typography>
+          <Typography variant="subtitle2">Xuất phát:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -207,7 +210,7 @@ function ModalAddTour({ open, handleClose, reloadData }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">PriceA:</Typography>
+          <Typography variant="subtitle2">Giá vé người lớn:</Typography>
           <TextField
             size="small"
             fullWidth
@@ -217,13 +220,24 @@ function ModalAddTour({ open, handleClose, reloadData }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">PriceC:</Typography>
+          <Typography variant="subtitle2">Giá vé trẻ em:</Typography>
           <TextField
             size="small"
             fullWidth
             value={priceC}
             onChange={(e) => setPriceC(e.target.value)}
             type="number"
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <Typography variant="subtitle2">Lịch trình:</Typography>
+          <TextField
+            size="small"
+            fullWidth
+            value={schedule}
+            onChange={(e) => setSchedule(e.target.value)}
+            multiline={true}
+            rows={5}
           />
         </Grid>
       </Grid>
