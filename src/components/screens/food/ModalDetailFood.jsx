@@ -18,6 +18,7 @@ function ModalDetailFood({ open, handleClose, reloadData, info }) {
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState();
   const [price, setPrice] = useState("");
+  const [type, setType] = useState("");
 
   const images = [
     { src: url1, setSrc: setUrl1 },
@@ -47,6 +48,7 @@ function ModalDetailFood({ open, handleClose, reloadData, info }) {
     setAddress("");
     setPhone(0);
     setPrice("");
+    setType("");
   };
 
   const handleUpdateFood = async () => {
@@ -62,6 +64,7 @@ function ModalDetailFood({ open, handleClose, reloadData, info }) {
         address,
         phone,
         price,
+        type,
       });
       notify("success", "Cập nhật thành công");
       reloadData();
@@ -97,6 +100,7 @@ function ModalDetailFood({ open, handleClose, reloadData, info }) {
     setAddress(info?.address);
     setPhone(info?.phone);
     setPrice(info?.price);
+    setType(info?.type);
   }, [info]);
 
   return (
@@ -136,6 +140,16 @@ function ModalDetailFood({ open, handleClose, reloadData, info }) {
             fullWidth
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+          />
+        </Grid>
+
+        <Grid item xs={3}>
+          <Typography variant="subtitle2">Loại:</Typography>
+          <TextField
+            size="small"
+            fullWidth
+            value={type}
+            onChange={(e) => setType(e.target.value)}
           />
         </Grid>
 

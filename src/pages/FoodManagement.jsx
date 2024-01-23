@@ -27,7 +27,7 @@ function FoodManagement() {
     { field: "time", headerName: "Thời gian mở cửa", width: 150 },
     { field: "phone", headerName: "Số điện thoại", width: 200 },
     { field: "address", headerName: "Địa chỉ", width: 150 },
-    { field: "price", headerName: "Giá", width: 150 },
+    { field: "price", headerName: "Giá tham khảo", width: 150 },
     {
       field: "",
       headerName: "Hành động",

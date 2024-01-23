@@ -18,6 +18,7 @@ function ModalAddFood({ open, handleClose, reloadData }) {
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState();
   const [price, setPrice] = useState("");
+  const [type, setType] = useState("");
 
   const images = [
     { src: url1, setSrc: setUrl1 },
@@ -47,6 +48,7 @@ function ModalAddFood({ open, handleClose, reloadData }) {
     setAddress("");
     setPhone(0);
     setPrice("");
+    setType("");
   };
 
   const handleAddFood = async () => {
@@ -62,6 +64,7 @@ function ModalAddFood({ open, handleClose, reloadData }) {
         address,
         phone,
         price,
+        type,
       });
       notify("success", "Thêm thành công");
       reloadData();
@@ -127,6 +130,16 @@ function ModalAddFood({ open, handleClose, reloadData }) {
         </Grid>
 
         <Grid item xs={3}>
+          <Typography variant="subtitle2">Loại:</Typography>
+          <TextField
+            size="small"
+            fullWidth
+            value={type}
+            onChange={(e) => setType(e.target.value)}
+          />
+        </Grid>
+
+        <Grid item xs={3}>
           <Typography variant="subtitle2">Thời gian mở cửa:</Typography>
           <TextField
             size="small"
@@ -155,7 +168,7 @@ function ModalAddFood({ open, handleClose, reloadData }) {
           />
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="subtitle2">Giá:</Typography>
+          <Typography variant="subtitle2">Giá tham khảo:</Typography>
           <TextField
             size="small"
             fullWidth
