@@ -50,7 +50,7 @@ function ModalAddUser({ open, handleClose, reloadData }) {
     >
       <Grid container spacing={2} component={"form"}>
         <Grid item xs={6}>
-          <Typography variant="subtitle2">Name:</Typography>
+          <Typography variant="subtitle2">Họ tên:</Typography>
           <TextField
             fullWidth
             size="small"
@@ -68,7 +68,7 @@ function ModalAddUser({ open, handleClose, reloadData }) {
           />
         </Grid>
         <Grid item xs={6}>
-          <Typography variant="subtitle2">Password:</Typography>
+          <Typography variant="subtitle2">Mật khẩu:</Typography>
           <TextField
             fullWidth
             size="small"
@@ -77,7 +77,7 @@ function ModalAddUser({ open, handleClose, reloadData }) {
           />
         </Grid>
         <Grid item xs={6}>
-          <Typography variant="subtitle2">Phone:</Typography>
+          <Typography variant="subtitle2">Số điện thoại:</Typography>
           <TextField
             fullWidth
             size="small"
@@ -86,7 +86,7 @@ function ModalAddUser({ open, handleClose, reloadData }) {
           />
         </Grid>
         <Grid item xs={6}>
-          <Typography variant="subtitle2">Birthday:</Typography>
+          <Typography variant="subtitle2">Sinh nhật:</Typography>
           <TextField
             fullWidth
             size="small"
@@ -96,7 +96,7 @@ function ModalAddUser({ open, handleClose, reloadData }) {
           />
         </Grid>
         <Grid item xs={6}>
-          <Typography variant="subtitle2">Gender:</Typography>
+          <Typography variant="subtitle2">Giới tính:</Typography>
           <RadioGroup
             row
             value={gender}
@@ -105,12 +105,12 @@ function ModalAddUser({ open, handleClose, reloadData }) {
             <FormControlLabel
               value={"1"}
               control={<Radio size="small" />}
-              label="Male"
+              label="Nam"
             />
             <FormControlLabel
               value={"0"}
               control={<Radio size="small" />}
-              label="Female"
+              label="Nữ"
             />
           </RadioGroup>
         </Grid>

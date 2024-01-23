@@ -19,13 +19,13 @@ function UserManagement() {
   const columns = [
     {
       field: "name",
-      headerName: "Name",
+      headerName: "Họ tên",
       width: 150,
     },
     { field: "email", headerName: "Email", width: 200 },
-    { field: "password", headerName: "Password", width: 150 },
-    { field: "date", headerName: "Birthday", width: 200 },
-    { field: "phone", headerName: "Phone", width: 150 },
+    { field: "password", headerName: "Mật khẩu", width: 150 },
+    { field: "date", headerName: "Sinh nhật", width: 200 },
+    { field: "phone", headerName: "Số điện thoại", width: 150 },
     {
       field: "",
       headerName: "Hành động",
