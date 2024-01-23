@@ -19,14 +19,14 @@ function HotelManagement() {
   const columns = [
     {
       field: "name",
-      headerName: "Name",
+      headerName: "Tên",
       width: 150,
     },
-    { field: "description", headerName: "Description", width: 200 },
-    { field: "rating", headerName: "Rating", width: 150 },
-    { field: "timeCheckin", headerName: "Time Checkin", width: 150 },
-    { field: "timeCheckout", headerName: "Time Checkout", width: 200 },
-    { field: "address", headerName: "Address", width: 150 },
+    { field: "description", headerName: "Mô tả", width: 200 },
+    { field: "rating", headerName: "Đánh giá", width: 150 },
+    { field: "timeCheckin", headerName: "Giờ nhận phòng", width: 150 },
+    { field: "timeCheckout", headerName: "Giờ trả phòng", width: 200 },
+    { field: "address", headerName: "Địa chỉ", width: 150 },
     {
       field: "",
       headerName: "Hành động",
