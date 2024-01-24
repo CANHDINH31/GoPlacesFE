@@ -6,6 +6,7 @@ import { notify } from "../utils/helpers/notify";
 import { DataGrid } from "@mui/x-data-grid";
 import { listTour } from "../utils/api/tour";
 import { listOrder, deleteOrder } from "../utils/api/order";
+import ModalDetailOrder from "../components/screens/order/ModalDetailOrder";
 
 function OrderManagement() {
   const [isOpenDelete, setIsOpenDelete] = useState(false);
@@ -13,6 +14,8 @@ function OrderManagement() {
   const [data, setData] = useState([]);
   const [arrayTour, setArrayTour] = useState([]);
   const [tourId, setTourId] = useState("");
+  const [isOpenUpdate, setIsOpenUpdate] = useState(false);
+  const [infoUpdate, setInfoUpdate] = useState({});
 
   const columns = [
     {
@@ -51,6 +54,13 @@ function OrderManagement() {
       renderCell: (params) => (
         <Box display={"flex"} gap={1}>
           <Button
+            variant="contained"
+            size="small"
+            onClick={() => handleOpenConfirmUpdate(params.row)}
+          >
+            Chi tiết
+          </Button>
+          <Button
             color="error"
             variant="contained"
             size="small"
@@ -62,6 +72,11 @@ function OrderManagement() {
       ),
     },
   ];
+
+  const handleOpenConfirmUpdate = (data) => {
+    setInfoUpdate(data);
+    setIsOpenUpdate(true);
+  };
 
   const handleOpenConfirmDelete = (id) => {
     setIsOpenDelete(true);
@@ -137,6 +152,13 @@ function OrderManagement() {
       <Box mt={4} height={"70vh"}>
         <DataGrid disableRowSelectionOnClick rows={data} columns={columns} />
       </Box>
+
+      <ModalDetailOrder
+        open={isOpenUpdate}
+        handleClose={() => setIsOpenUpdate(false)}
+        reloadData={() => getListOrder(tourId)}
+        info={infoUpdate}
+      />
 
       {/* Modal delete */}
       <ConfirmDelete
