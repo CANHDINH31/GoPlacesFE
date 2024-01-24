@@ -4,7 +4,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { BiCategory } from "react-icons/bi";
 import { RiUserLine, RiHotelLine, RiBus2Line } from "react-icons/ri";
-import { MdOutlineEmojiFoodBeverage } from "react-icons/md";
+import { MdOutlineEmojiFoodBeverage, MdCardTravel } from "react-icons/md";
 
 export const Sidebar = (
   <React.Fragment>
@@ -19,6 +19,12 @@ export const Sidebar = (
         <BiCategory fontSize={24} />
       </ListItemIcon>
       <ListItemText primary="Tour du lịch" />
+    </ListItemButton>
+    <ListItemButton href="/order">
+      <ListItemIcon>
+        <MdCardTravel fontSize={24} />
+      </ListItemIcon>
+      <ListItemText primary="Quản lý book tour" />
     </ListItemButton>
     <ListItemButton href="/hotel">
       <ListItemIcon>
