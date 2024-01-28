@@ -3,6 +3,7 @@ import { Typography, TextField, Grid } from "@mui/material";
 import ModalUpdate from "../../common/ModalUpdate";
 import { notify } from "../../../utils/helpers/notify";
 import { updateOrder } from "../../../utils/api/order";
+import moment from "moment";
 
 function ModalDetailOrder({ open, handleClose, reloadData, info }) {
   const [numberPriceA, setNumberPriceA] = useState("");
@@ -72,6 +73,12 @@ function ModalDetailOrder({ open, handleClose, reloadData, info }) {
             value={numberPriceC}
             onChange={(e) => setNumberPriceC(e.target.value)}
           />
+        </Grid>
+        <Grid item xs={12}>
+          <Typography variant="subtitle2">
+            Thời gian đặt:{" "}
+            {moment(info?.createdAt).format("DD-MM-YYYY HH:mm:ss")}
+          </Typography>
         </Grid>
       </Grid>
     </ModalUpdate>

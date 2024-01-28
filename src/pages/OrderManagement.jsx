@@ -7,6 +7,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { listTour } from "../utils/api/tour";
 import { listOrder, deleteOrder } from "../utils/api/order";
 import ModalDetailOrder from "../components/screens/order/ModalDetailOrder";
+import moment from "moment";
 
 function OrderManagement() {
   const [isOpenDelete, setIsOpenDelete] = useState(false);
@@ -45,6 +46,16 @@ function OrderManagement() {
       field: "numberPriceC",
       headerName: "Số lượng vé trẻ em",
       width: 150,
+    },
+    {
+      field: "createdAt",
+      headerName: "Thời gian đặt",
+      width: 200,
+      renderCell: (params) => (
+        <span>
+          {moment(params?.row?.createdAt).format("DD-MM-YYYY HH:mm:ss")}
+        </span>
+      ),
     },
 
     {
